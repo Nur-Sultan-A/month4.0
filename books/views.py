@@ -4,12 +4,12 @@ import random
 from datetime import datetime as dt
 
 
-def about_me_view(request):
+def me_view(request):
     if request.method == 'GET':
         return HttpResponse('i guess u dont need to know about me >:)')
 
 
-def authors_random_view(request):
+def random_view(request):
     if request.method == 'GET':
         blogs_random = ['Чак Паланик', 'Джордж Оруэлл', 'Федор Достоевский', 'Айн Рэнд', 'Артур Конан Дойл']
         return HttpResponse(random.choice(blogs_random))
