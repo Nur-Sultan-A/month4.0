@@ -11,10 +11,10 @@ def me_view(request):
 
 def random_view(request):
     if request.method == 'GET':
-        blogs_random = ['Чак Паланик', 'Джордж Оруэлл', 'Федор Достоевский', 'Айн Рэнд', 'Артур Конан Дойл']
+        blogs_random = ['майнкрафт это моя жииизн', '1000-7', 'ЛАДНО(фресеко)', 'молчать', 'ИИ вас всех заменит']
         return HttpResponse(random.choice(blogs_random))
 
-def time_view(request):
+def time_view(request)
     if request.method == "GET":
         time = dt.now()
         hour = time.strftime("%H")
