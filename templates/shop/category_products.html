@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ category.name }}</title>
+</head>
+<body>
+    <h1>Products in {{ category.name }}</h1>
+    <ul>
+        {% for p in products %}
+            <li>
+                {{ p.name }} — {{ p.price }} KGS
+            </li>
+        {% empty %}
+            <p>No products in this category.</p>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'category_list' %}">← Back to categories</a>
+</body>
+</html>

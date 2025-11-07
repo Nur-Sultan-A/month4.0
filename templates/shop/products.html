@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>All Products</title>
+</head>
+<body>
+    <h1>All Products</h1>
+    <ul>
+        {% for p in products %}
+            <li>
+                {{ p.name }} — {{ p.price }} KGS
+                <br>
+                Category: {{ p.category.name }}
+            </li>
+        {% empty %}
+            <p>No products found.</p>
+        {% endfor %}
+    </ul>
+</body>
+</html>
