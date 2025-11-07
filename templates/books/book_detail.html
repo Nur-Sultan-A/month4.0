@@ -1,36 +1,45 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Книги</title>
+    <title>{{ book.title }}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
+
 <body>
-    <h1>Подробнее о книге - {{book_id.title}}</h1>
-    <img src="{{book_id.image.url}}" alt="" width="450" height="400">
-    <p>Аннотация: {{book_id.description}}</p>
-    <p>Автор: {{book_id.director}}</p>
-    <p>Жанр: {{book_id.genre}}</p>
-    <p>Страна: {{book_id.country}}</p>
-    <p>Количество страниц: {{book_id.pages}} стр</p>
-    <p>Возрастное ограничение: {{book_id.age}}</p>
-    <p>Язык: {{book_id.language}}</p>
-    <p>Издательство: {{book_id.publishing_house}}</p>
+    {% include 'header.html' %}
+
+    <h1>Подробнее о книге - {{ book.title }}</h1>
+
+    <img src="{{ book.image.url }}" alt="{{ book.title }}" width="450" height="400">
+
+    <p>Аннотация: {{ book.description }}</p>
+    <p>Автор: {{ book.director }}</p>
+    <p>Жанр: {{ book.genre }}</p>
+    <p>Страна: {{ book.country }}</p>
+    <p>Количество страниц: {{ book.pages }} стр</p>
+    <p>Возрастное ограничение: {{ book.age }}</p>
+    <p>Язык: {{ book.language }}</p>
+    <p>Издательство: {{ book.publishing_house }}</p>
+
     <hr>
+
     <h2>Отзывы</h2>
- 
-    <h3>Общая оценка - "вставить значение переменной тут"</h3>
-     
+    <h3>Общая оценка — {{ average_rating }}</h3>
+
     <ol>
-        <!-- Вставить цикл тут -->
-        <li>
-            <h2>Имя - "вставить значение переменной тут"</h2>
-            <p>Оценка - "вставить значение переменной тут"</p>
-            <p>Комментарий - "вставить значение переменной тут"</p>
-        </li>
-        
-        <!-- Закрыть цикл тут -->
+        {% for i in book.review_set.all %}
+            <li>
+                <h2>Имя — {{ i.user_name }}</h2>
+                <p>Оценка — {{ i.rating }}</p>
+                <p>Комментарий — {{ i.comment }}</p>
+            </li>
+            <p>Пока нет отзывов об этой книге.</p>
+        {% endfor %}
     </ol>
 
+    {% include 'footer.html' %}
 </body>
 </html>

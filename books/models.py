@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
 class Book(models.Model):
@@ -28,3 +29,21 @@ class Book(models.Model):
     class Meta:
         verbose_name = 'Книга'
         verbose_name_plural = 'Книги'
+
+
+class Review(models.Model):
+    RATING_CHOICES = [
+        ('1', '1'),
+        ('2', '2'),
+        ('3', '3'),
+        ('4', '4'),
+        ('5', '5'),
+    ]
+
+    book = models.ForeignKey(Book, on_delete=models.CASCADE, related_name='review')
+    user_name = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Пользователь')
+    rating = models.CharField(max_length=1, choices=RATING_CHOICES, default='4')
+    comment = models.TextField()
+
+    def __str__(self):
+        return f'{self.book.title} - {self.rating}'
