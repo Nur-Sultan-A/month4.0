@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.conf import settings
 
 
 class Book(models.Model):
@@ -41,7 +41,7 @@ class Review(models.Model):
     ]
 
     book = models.ForeignKey(Book, on_delete=models.CASCADE, related_name='review')
-    user_name = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Пользователь')
+    user_name = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     rating = models.CharField(max_length=1, choices=RATING_CHOICES, default='4')
     comment = models.TextField()
 

@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+<body>
+{% include 'header.html' %}
+<h1>UserList</h1>
+    <ul>
+        {% for i in users %}
+        <li>
+            <h2>{{ i.username }}</h2>
+            <p>{{ i.first_name }}</p>
+            <p>{{ i.last_name }}</p>
+            <p>{{ i.password }}</p>
+            <p>{{ i.email }}</p>
+            <p>{{ i.gender }}</p>
+            <p>{{ i.phone_number }}</p>
+            <p>{{ i.languages }}</p>
+            <p>{{ i.it_languages }}</p>
+            <p>{{ i.qualification }}</p>
+            <p>{{ i.birth_date }}</p>
+        </li>
+        {% endfor %}
+    </ul>
+
+
+    <form action="{% url 'users:login' %}">
+        {% csrf_token %}
+        <button type="submit">Выйти из аккаунта</button>
+    </form>
+
+{% include 'footer.html' %}
+</body>
+</html>

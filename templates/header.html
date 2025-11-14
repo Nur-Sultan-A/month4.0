@@ -5,7 +5,7 @@
        <a href="{% url 'book_list' %}" style="color:#f5f5f5; margin-right:20px; font-weight:bold;">Главная</a>
        <a href="#" style="color:#f5f5f5; margin-right:20px; font-weight:bold;">Хэштеги</a>
        <a href="#" style="color:#f5f5f5; margin-right:20px; font-weight:bold;">TODO</a>
-       <a href="#" style="color:#f5f5f5; margin-right:20px; font-weight:bold;">Авторизация</a>
-       <a href="#" style="color:#f5f5f5; margin-right:20px; font-weight:bold;">Регистрация</a>
+       <a href="{% url 'users:login' %}" style="color:#f5f5f5; margin-right:20px; font-weight:bold;">Авторизация</a>
+       <a href="{% url 'users:register' %}" style="color:#f5f5f5; margin-right:20px; font-weight:bold;">Регистрация</a>
    </nav>
 </header>
