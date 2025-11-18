@@ -1,0 +1,16 @@
+<h1>Аксессуары</h1>
+    <ul>
+        {% for i in accessories %}
+        <li>
+            <h2>{{ i.title }}</h2>
+            <p>
+                {% for tag in i.tags.all %}
+                {{ tag.name }} {% if not forloop.last %}, {% endif %}
+                {% empty %}
+                Тегов нет:
+                {% endfor %}
+            </p>
+
+        </li>
+        {% endfor %}
+    </ul>

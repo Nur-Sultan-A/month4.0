@@ -9,6 +9,21 @@
 </head>
 <body>
     {% include 'header.html' %}
+    <form action="{% url 'search' %}" method="GET" style="text-align: center; margin: 20px 0;">
+        <input
+            type="search"
+            name="s"
+            placeholder="Введите название..."
+            style="padding: 8px 12px; width: 250px; border-radius: 8px; border: 1px solid #aaa;"
+        >
+        <button
+            type="submit"
+            style="padding: 8px 12px; border-radius: 8px; border: none; color: white; cursor: pointer;"
+        >
+            Поиск
+        </button>
+    </form>
+    
     <h1>Все книги</h1>
     <ul>
         <!-- Цикл вставить тут -->

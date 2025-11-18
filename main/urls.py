@@ -11,6 +11,7 @@ urlpatterns = [
     path('', include('users.urls')),
     path('captcha/', include('captcha.urls')),
     path('verify-email/<uuid:token>/', views.verify_email, name='verify_email'),
+    path('', include('Waikiki.urls')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

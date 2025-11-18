@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     'users',
     'captcha',
     'django.contrib.sites',
+    'Waikiki',
 ]
 
 MIDDLEWARE = [
